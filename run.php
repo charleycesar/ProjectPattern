@@ -2,6 +2,5 @@
     include "vendor/autoload.php";
 
     $html = new Projeto\Html\Html;
-
-    $img = $html->img('logo.png',['class'=>'btn btn-primary']);
-    echo $html->a($img, 'https://charleycesar.github.io', ['class'=>'btn btn-primary']);
+    $img = $html->img('logo.png');
+    echo $html->a($img,'Meu Site','https://charleycesar.github.io',['class'=>'btn btn-primary']);

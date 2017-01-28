@@ -1,32 +1,17 @@
 <?php
-    
-    namespace Projeto\Html;
-    
-    class Html {
-        
-        public function a($text,$href, array $attribute = null){
-	    $attribute = $this->attribute($attribute);
-	    return "<a href='{$href}' {$attribute}>{$text}</a>";        
-        }
 
-	public function img($src, array $attribute = null){
-	    $attribute = $this->attribute($attribute);
-	    return "<img src='{$src}' {$attribute}>";
-	}
+namespace Projeto\Html;
 
-	public function attribute(array $attribute = null){
-	    if( $attribute !== null ){
-		foreach( $attribute as $k => $v ){
-		    if( is_int($k) ){
-		    	$param = $v;
-		    }else{ 
-		    	$param = $k. '="' .$v. '"';
-		    }
-		    $data[] = $param;
-		}
-		$attribute = implode(' ',$data);
-	    } 
-	    return $attribute;
-	}	
-        
+class Html
+{
+    public static function builder($method,$params){
+	    $tag = (new Builder)
+        ->params($params)
+        ->call($method);
+	    return $tag;
     }
+    public function __call($method, $params)
+    {
+        return $this->builder($method,$params);
+    }
+}

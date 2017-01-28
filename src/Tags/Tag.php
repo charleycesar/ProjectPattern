@@ -4,7 +4,7 @@ namespace Projeto\Html\Tags;
 
 abstract class Tag
 {
-	public function get(string $content, Attributes $attributes = null)
+	public function get(string $content, array $attributes = null)
 	{
 		$this->validate($attributes);
 		return $this->create($content, $attributes);	
