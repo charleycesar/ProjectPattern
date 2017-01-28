@@ -1,0 +1,19 @@
+{
+    "name": "root/project-pattern",
+    "description": "Padroes de Projeto",
+    "type": "project",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Projeto\\Html":"src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Charley",
+            "email": "charleycesar@gmail.com"
+        }
+    ]
+}
