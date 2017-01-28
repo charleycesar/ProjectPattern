@@ -5,11 +5,12 @@
     class Html {
         
         public function a($text,$href, array $attribute = null){
-	    $attribute = $this->$attribute($attribute);
+	    $attribute = $this->attribute($attribute);
 	    return "<a href='{$href}' {$attribute}>{$text}</a>";        
         }
 
 	public function img($src, array $attribute = null){
+	    $attribute = $this->attribute($attribute);
 	    return "<img src='{$src}' {$attribute}>";
 	}
 
@@ -17,10 +18,11 @@
 	    if( $attribute !== null ){
 		foreach( $attribute as $k => $v ){
 		    if( is_int($k) ){
-		    	$data[] => $v;
+		    	$param = $v;
 		    }else{ 
-		    	$data[] => $k. '="' .$v. '"';
+		    	$param = $k. '="' .$v. '"';
 		    }
+		    $data[] = $param;
 		}
 		$attribute = implode(' ',$data);
 	    } 
